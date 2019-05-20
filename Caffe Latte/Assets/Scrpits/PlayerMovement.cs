@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         yAxis = Input.GetAxisRaw("Vertical");
         xAxis = Input.GetAxisRaw("Horizontal");
         mousePositon = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        SpriteMask.position = new Vector3(mousePositon.x, mousePositon.y, 0);
+        SpriteMask.position = new Vector3(mousePositon.x, mousePositon.y, 0); // teste
 
 
 
