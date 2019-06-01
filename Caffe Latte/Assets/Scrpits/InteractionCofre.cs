@@ -12,6 +12,7 @@ public class InteractionCofre : MonoBehaviour
     public GameObject Quadro;
     public GameObject Cofre;
     public GameObject ObjetoDentro;
+    public GameObject CofreAbertoSprite;
 
     public SpriteRenderer ChaveSprite;
     public AudioSource Queda;
@@ -56,8 +57,9 @@ public class InteractionCofre : MonoBehaviour
     public void AbirCofre()
     {
         isCofreAberto = true;
-        ChaveSprite.sortingOrder = 3;
+        ChaveSprite.sortingOrder = 4;
         KeyPad.SetActive(false);
+        CofreAbertoSprite.SetActive(true);
         //Cofre.SetActive(false); // nao vai ser assim
     }
 

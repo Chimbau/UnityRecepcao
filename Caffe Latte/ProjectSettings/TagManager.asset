@@ -20,6 +20,7 @@ TagManager:
   - BalcaoXicaras
   - Cofre
   - Porta
+  - LugarChave
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - UI2
   - 
   - 
   - 

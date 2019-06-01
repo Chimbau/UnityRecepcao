@@ -13,6 +13,8 @@ public class KeyPadScript : MonoBehaviour
     public Text numero;
     public InteractionCofre Cofre;
 
+    public Text[] PainelNumeros = new Text[4];
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class KeyPadScript : MonoBehaviour
         if (index < sequencia.Length)
         {
             sequencia[index] = 1;
+            PainelNumeros[index].text = "1";
             index++;
         }
        
@@ -44,6 +47,7 @@ public class KeyPadScript : MonoBehaviour
         if (index < sequencia.Length)
         {
             sequencia[index] = 2;
+            PainelNumeros[index].text = "2";
             index++;
         }
     }
@@ -53,6 +57,7 @@ public class KeyPadScript : MonoBehaviour
         if (index < sequencia.Length)
         {
             sequencia[index] = 3;
+            PainelNumeros[index].text = "3";
             index++;
         }
     }
@@ -62,6 +67,7 @@ public class KeyPadScript : MonoBehaviour
         if (index < sequencia.Length)
         {
             sequencia[index] = 4;
+            PainelNumeros[index].text = "4";
             index++;
         }
     }
@@ -71,6 +77,7 @@ public class KeyPadScript : MonoBehaviour
         if (index < sequencia.Length)
         {
             sequencia[index] = 5;
+            PainelNumeros[index].text = "5";
             index++;
         }
     }
@@ -80,6 +87,7 @@ public class KeyPadScript : MonoBehaviour
         if (index < sequencia.Length)
         {
             sequencia[index] = 6;
+            PainelNumeros[index].text = "6";
             index++;
         }
     }
@@ -89,6 +97,7 @@ public class KeyPadScript : MonoBehaviour
         if (index < sequencia.Length)
         {
             sequencia[index] = 7;
+            PainelNumeros[index].text = "7";
             index++;
         }
     }
@@ -98,6 +107,7 @@ public class KeyPadScript : MonoBehaviour
         if (index < sequencia.Length)
         {
             sequencia[index] = 8;
+            PainelNumeros[index].text = "8";
             index++;
         }
     }
@@ -107,6 +117,7 @@ public class KeyPadScript : MonoBehaviour
         if (index < sequencia.Length)
         {
             sequencia[index] = 9;
+            PainelNumeros[index].text = "9";
             index++;
         }
     }
@@ -116,6 +127,7 @@ public class KeyPadScript : MonoBehaviour
         if (index < sequencia.Length)
         {
             sequencia[index] = 0;
+            PainelNumeros[index].text = "0";
             index++;
         }
     }
@@ -146,6 +158,7 @@ public class KeyPadScript : MonoBehaviour
             for (int i = 0; i < 4; i++)
             {
                 sequencia[i] = 0;
+                PainelNumeros[i].text = "";
             }
             Debug.Log("Senha incorreta");
         }

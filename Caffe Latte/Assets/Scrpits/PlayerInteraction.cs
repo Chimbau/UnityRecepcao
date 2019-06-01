@@ -13,10 +13,15 @@ public class PlayerInteraction : MonoBehaviour
     private bool rangeBalcaoXicara;
     private bool rangeCofre;
     private bool rangePorta;
+    private bool rangeChave;
 
     public bool temChave;
     private bool temLanterna;
+    private bool LigarLanterna;
     private bool visao1Foi;
+  
+
+
 
 
     public bool CarregandoXicara;
@@ -38,10 +43,17 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject Chave;
     public GameObject Porta;
     public GameObject WinPanel;
+    public GameObject Lanterna;
+
+    public GameObject Portinha;
+    public GameObject ObjetoPortinha;
+    public AudioSource RemoverPortinha;
+    public GameObject LanternaControle;
 
     public SpriteRenderer XicaraSprite;
 
     
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +66,7 @@ public class PlayerInteraction : MonoBehaviour
         rangePorta = false;
         temChave = false;
         temLanterna = false;
+        LigarLanterna = false;
         visao1Foi = false;
         
         
@@ -148,12 +161,33 @@ public class PlayerInteraction : MonoBehaviour
                     else
                     {
                         FocusCofre.PegarObjetoDentro();
-                        temChave = true;
-                        Chave.SetActive(true);
+                        //temChave = true;
+                        //Chave.SetActive(true);
+                        temLanterna = true;
+                        LanternaControle.SetActive(true);
                     }
                     
                 }
                 
+            }
+
+            if (rangeChave)
+            {
+                if (temLanterna)
+                {
+                    if (!Portinha.activeSelf)
+                    {
+                        Portinha.SetActive(true);
+                        RemoverPortinha.Play();
+                    }
+                    else
+                    {
+                        ObjetoPortinha.SetActive(false);
+                        temChave = true;
+                        Chave.SetActive(true);
+                    }
+
+                }
             }
 
 
@@ -163,6 +197,26 @@ public class PlayerInteraction : MonoBehaviour
                 Focus.HideCloseMessage();
                 WinPanel.SetActive(true);
             }
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (temLanterna)
+            {
+                LanternaControle.SetActive(false);
+                LigarLanterna = !LigarLanterna;
+                if (LigarLanterna)
+                {
+                    Lanterna.SetActive(true);
+                }
+                else
+                {
+                    Lanterna.SetActive(false);
+                }
+            }
+           
         }
     }
 
@@ -265,6 +319,11 @@ public class PlayerInteraction : MonoBehaviour
             Focus.ShowCloseMessage();
             rangePorta = true;
         }
+
+        if (other.tag == "LugarChave")
+        {
+            rangeChave = true;
+        }
         
     }
 
@@ -344,6 +403,11 @@ public class PlayerInteraction : MonoBehaviour
         {
             rangePorta = false;
             Focus.HideCloseMessage();
+        }
+
+        if (other.tag == "LugarChave")
+        {
+            rangeChave = false;
         }
     }
 

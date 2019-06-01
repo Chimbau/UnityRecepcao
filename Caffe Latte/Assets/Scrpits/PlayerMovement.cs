@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         yAxis = Input.GetAxisRaw("Vertical");
         xAxis = Input.GetAxisRaw("Horizontal");
         mousePositon = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        SpriteMask.position = new Vector3(mousePositon.x, mousePositon.y, 0); // teste
+        //SpriteMask.position = new Vector3(mousePositon.x, mousePositon.y, 0); // teste
 
 
 
@@ -60,6 +60,15 @@ public class PlayerMovement : MonoBehaviour
             transform.Rotate(new Vector3(0, 180, 0));
             virou = false;
         }
+    }
+
+
+    public float PegarAnguloMouse()
+    {
+        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 resultVecotr = Input.mousePosition - pos;
+        float mouseAngulo = -Mathf.Atan2(resultVecotr.x, resultVecotr.y) * Mathf.Rad2Deg;
+        return mouseAngulo;
     }
 }
 
